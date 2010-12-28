@@ -63,33 +63,27 @@
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
-			function CalculateCurrentBalance() {
-				// add up the numbers entered into all the "bills" & "coins" fields
-				total = Number($('#hundreds').val()) * 100.00;
-				total += Number($('#fifties').val()) * 50.00;
-				total += Number($('#twenties').val()) * 20.00;
-				total += Number($('#tens').val()) * 10.00;
-				total += Number($('#fives').val()) * 5.00;
-				total += Number($('#ones').val());
-				total += Number($('#quarters').val()) * 0.25;
-				total += Number($('#dimes').val()) * 0.1;
-				total += Number($('#nickels').val()) * 0.05;
-				total += Number($('#pennies').val()) * 0.01;
-				
-				// set the current balance
-				$('#currentBalance').val(total.toFixed(2));
-			}
-			
-			function CalculateBalanceDelta() {
-				var delta = 0;
-				delta = Number($('#currentBalance').val()) - Number($('#openingBalance').val());
-				$('#balanceDelta').val(delta.toFixed(2));
-			}
-			
 			$(document).ready(function() {
-				$("#hundreds, #fifties, #twenties, #tens, #fives, #ones, #quarters, #dimes, #nickels, #pennies").blur(function() {
-					CalculateCurrentBalance();
-					CalculateBalanceDelta();
+				$("#hundreds, #fifties, #twenties, #tens, #fives, #ones, #quarters, #dimes, #nickels, #pennies, #openingBalance").blur(function() {
+					// add up the numbers entered into all the "bills" & "coins" fields
+					total = Number($('#hundreds').val()) * 100.00;
+					total += Number($('#fifties').val()) * 50.00;
+					total += Number($('#twenties').val()) * 20.00;
+					total += Number($('#tens').val()) * 10.00;
+					total += Number($('#fives').val()) * 5.00;
+					total += Number($('#ones').val());
+					total += Number($('#quarters').val()) * 0.25;
+					total += Number($('#dimes').val()) * 0.1;
+					total += Number($('#nickels').val()) * 0.05;
+					total += Number($('#pennies').val()) * 0.01;
+
+					// set the current balance
+					$('#currentBalance').val(total.toFixed(2));
+
+					// update the delta
+					var delta = 0;
+					delta = Number($('#currentBalance').val()) - Number($('#openingBalance').val());
+					$('#balanceDelta').val(delta.toFixed(2));
 				})
 			});
 		</script>
