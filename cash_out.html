@@ -61,48 +61,45 @@
 				margin-left: 123px; /* Width plus 3 (html space) */
 			}
 		</style>
-		<script type="text/javascript" src="http://prototypejs.org/assets/2007/6/20/prototype.js"></script>
-		<script type="text/javascript" src="http://svn.danwebb.net/external/lowpro/tags/rel-0.4/dist/lowpro.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			function CalculateCurrentBalance() {
 				// add up the numbers entered into all the "bills" & "coins" fields
-				total = Number($('hundreds').getValue());
-				total += Number($('fifties').getValue());
-				total += Number($('twenties').getValue());
-				total += Number($('tens').getValue());
-				total += Number($('fives').getValue());
-				total += Number($('ones').getValue());
-				total += Number($('quarters').getValue()) * 0.25;
-				total += Number($('dimes').getValue()) * 0.1;
-				total += Number($('nickels').getValue()) * 0.05;
-				total += Number($('pennies').getValue()) * 0.01;
+				total = Number($('#hundreds').val()) * 100.00;
+				total += Number($('#fifties').val()) * 50.00;
+				total += Number($('#twenties').val()) * 20.00;
+				total += Number($('#tens').val()) * 10.00;
+				total += Number($('#fives').val()) * 5.00;
+				total += Number($('#ones').val());
+				total += Number($('#quarters').val()) * 0.25;
+				total += Number($('#dimes').val()) * 0.1;
+				total += Number($('#nickels').val()) * 0.05;
+				total += Number($('#pennies').val()) * 0.01;
 				
 				// set the current balance
-				$('currentBalance').update(total);
+				$('#currentBalance').val(total.toFixed(2));
 			}
 			
 			function CalculateBalanceDelta() {
 				var delta = 0;
-				delta = Number($('currentBalance').getValue()) - Number($('openingBalance').getValue());
-				$('balanceDelta').setValue(delta);
+				delta = Number($('#currentBalance').val()) - Number($('#openingBalance').val());
+				$('#balanceDelta').val(delta.toFixed(2));
 			}
 			
-			Event.addBehavior({
-				'#hundreds': function() {
-					this.observe('blur', function() {
-						CalculateCurrentBalance();
-						CalculateBalanceDelta();
-					});
-				}
+			$(document).ready(function() {
+				$("#hundreds, #fifties, #twenties, #tens, #fives, #ones, #quarters, #dimes, #nickels, #pennies").blur(function() {
+					CalculateCurrentBalance();
+					CalculateBalanceDelta();
+				})
 			});
 		</script>
-		<title>Cash Out Calculator</title>
+		<title>Cash Out</title>
 	</head>
 	<body>
 		<!-- BEGIN WRAPPER -->
 		<div id="wrapper">
 			
-			<h1>Cash Out Calculator</h1>
+			<h1>Cash Out</h1>
 			
 			<form class="cmxform" action="">
 				<fieldset>
@@ -164,7 +161,7 @@
 						</li>
 						<li>
 							<label for="openingBalance">Opening Balance</label>
-							<input id="openingBalance" />
+							<input id="openingBalance" value="200.00" />
 						</li>
 						<li>
 							<label for="balanceDelta">Delta</label>
