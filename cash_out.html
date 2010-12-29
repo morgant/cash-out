@@ -112,6 +112,10 @@
 				background-color: #00f;
 				color: #fff;
 			}
+
+			#balanceDelta.under { color: red; }
+			#balanceDelta.even { color: orange; }
+			#balanceDelta.over { color: green; }
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
@@ -135,12 +139,24 @@
 					total += Number($('#pennies').val()) * 0.01;
 
 					// set the current balance
-					$('#currentBalance').val(total.toFixed(2));
+					$('#cashBalance').val(total.toFixed(2));
 
 					// update the delta
 					var delta = 0;
-					delta = Number($('#currentBalance').val()) - Number($('#openingBalance').val());
-					$('#balanceDelta').val(delta.toFixed(2));
+					delta = Number($('#cashBalance').val()) - Number($('#openingBalance').val());
+					$('#balanceDelta').val(delta.toFixed(2)).removeClass("over under even");
+					if ( delta < 0 )
+					{
+						$("#balanceDelta").addClass("under");
+					}
+					else if ( delta == 0 )
+					{
+						$("#balanceDelta").addClass("even");
+					}
+					else
+					{
+						$("#balanceDelta").addClass("over");
+					}
 				});
 
 				// print button action
@@ -161,27 +177,27 @@
 					<legend>Bills</legend>
 					<ol>
 						<li>
-							<label for="hundreds">$100</label>
+							<label for="hundreds">$100 &times;</label>
 							<input id="hundreds" />
 						</li>
 						<li>
-							<label for="fifies">$50</label>
+							<label for="fifies">$50 &times;</label>
 							<input id="fifties" />
 						</li>
 						<li>
-							<label for="twenties">$20</label>
+							<label for="twenties">$20 &times;</label>
 							<input id="twenties" />
 						</li>
 						<li>
-							<label for="tens">$10</label>
+							<label for="tens">$10 &times;</label>
 							<input id="tens" />
 						</li>
 						<li>
-							<label for="fives">$5</label>
+							<label for="fives">$5 &times;</label>
 							<input id="fives" />
 						</li>
 						<li>
-							<label for="ones">$1</label>
+							<label for="ones">$1 &times;</label>
 							<input id="ones" />
 						</li>
 					</ol>
@@ -190,19 +206,19 @@
 					<legend>Coins</legend>
 					<ol>
 						<li>
-							<label for="quarters">25¢</label>
+							<label for="quarters">25¢ &times;</label>
 							<input id="quarters" />
 						</li>
 						<li>
-							<label for="dimes">10¢</label>
+							<label for="dimes">10¢ &times;</label>
 							<input id="dimes" />
 						</li>
 						<li>
-							<label for="nickels">5¢</label>
+							<label for="nickels">5¢ &times;</label>
 							<input id="nickels" />
 						</li>
 						<li>
-							<label for="pennies">1¢</label>
+							<label for="pennies">1¢ &times;</label>
 							<input id="pennies" />
 						</li>
 					</ol>
@@ -211,15 +227,15 @@
 					<legend>Totals</legend>
 					<ol>
 						<li>
-							<label for="currentBalance">Current Balance</label>
-							<input id="currentBalance" />
-						</li>
-						<li>
 							<label for="openingBalance">Opening Balance</label>
 							<input id="openingBalance" value="200.00" />
 						</li>
 						<li>
-							<label for="balanceDelta">Delta</label>
+							<label for="cashBalance">Cash Balance</label>
+							<input id="cashBalance" />
+						</li>
+						<li>
+							<label for="balanceDelta">Deposit</label>
 							<input id="balanceDelta" />
 							<span id="balanceDeltaDesc"></span>
 						</li>
