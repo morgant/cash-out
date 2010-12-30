@@ -112,10 +112,13 @@
 				background-color: #00f;
 				color: #fff;
 			}
+			fieldset input[type=button] {
+				margin: 10px 0;
+			}
 
-			#balanceDelta.under { color: red; }
-			#balanceDelta.even { color: orange; }
-			#balanceDelta.over { color: green; }
+			input.under { color: red; }
+			input.even { color: orange; }
+			input.over { color: green; }
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
@@ -125,31 +128,49 @@
 				$("#date").text(today.toLocaleDateString());
 
 				// update calculations upon leaving a field
-				$("#hundreds, #fifties, #twenties, #tens, #fives, #ones, #quarters, #dimes, #nickels, #pennies, #openingBalance").blur(function() {
-					// add up the numbers entered into all the "bills" & "coins" fields
-					total = Number($('#hundreds').val()) * 100.00;
-					total += Number($('#fifties').val()) * 50.00;
-					total += Number($('#twenties').val()) * 20.00;
-					total += Number($('#tens').val()) * 10.00;
-					total += Number($('#fives').val()) * 5.00;
-					total += Number($('#ones').val());
-					total += Number($('#quarters').val()) * 0.25;
-					total += Number($('#dimes').val()) * 0.1;
-					total += Number($('#nickels').val()) * 0.05;
-					total += Number($('#pennies').val()) * 0.01;
+				$("#hundreds, #fifties, #twenties, #tens, #fives, #ones, #quarters, #dimes, #nickels, #pennies, #openingBalance, li.check > input").blur(function() {
+					// sum up the cash balance
+					var cashTotal = 0;
+					cashTotal = Number($('#hundreds').val()) * 100.00;
+					cashTotal += Number($('#fifties').val()) * 50.00;
+					cashTotal += Number($('#twenties').val()) * 20.00;
+					cashTotal += Number($('#tens').val()) * 10.00;
+					cashTotal += Number($('#fives').val()) * 5.00;
+					cashTotal += Number($('#ones').val());
+					cashTotal += Number($('#quarters').val()) * 0.25;
+					cashTotal += Number($('#dimes').val()) * 0.1;
+					cashTotal += Number($('#nickels').val()) * 0.05;
+					cashTotal += Number($('#pennies').val()) * 0.01;
+					$('#cashBalance').val(cashTotal.toFixed(2)).removeClass("over under even");
+					if ( (cashTotal - Number($("#openingBalance").val())) < 0 )
+					{
+						$("#cashBalance").addClass("under");
+					}
+					else if ( (cashTotal - Number($("#openingBalance").val())) == 0 )
+					{
+						$("#cashBalance").addClass("even");
+					}
+					else
+					{
+						$("#cashBalance").addClass("over");
+					}
 
-					// set the current balance
-					$('#cashBalance').val(total.toFixed(2));
+					
+					// sum up the checks balance
+					var checksTotal = Number(0);
+					$("li.check > input").each(function () { checksTotal += Number($(this).val());  });
+					$("#checksBalance").val(checksTotal.toFixed(2));
+
 
 					// update the delta
 					var delta = 0;
-					delta = Number($('#cashBalance').val()) - Number($('#openingBalance').val());
+					delta = Number($('#cashBalance').val()) - Number($('#openingBalance').val()) + Number($("#checksBalance").val());
 					$('#balanceDelta').val(delta.toFixed(2)).removeClass("over under even");
-					if ( delta < 0 )
+					if ( (delta - Number($("#checksBalance").val())) < 0 )
 					{
 						$("#balanceDelta").addClass("under");
 					}
-					else if ( delta == 0 )
+					else if ( (delta - Number($("#checksBalance").val())) == 0 )
 					{
 						$("#balanceDelta").addClass("even");
 					}
@@ -158,7 +179,22 @@
 						$("#balanceDelta").addClass("over");
 					}
 				});
-
+				
+				// add check button action
+				$("#addCheck").click(function() {
+					var checkNumber = $("#checksList").children().length + 1;
+					var newCheckHTML = "<li class=\"check\"><label for=\"check" + checkNumber + "\">Check Amount</label><input id=\"check" + checkNumber + "\" /></li>\n";
+					
+					if ( checkNumber == 1 )
+					{
+						$("#checksList").html(newCheckHTML);
+					}
+					else
+					{
+						$("#checksList").children().last().after(newCheckHTML);
+					}
+				});
+					
 				// print button action
 				$("#print").click(function() { window.print(); });
 			});
@@ -224,6 +260,18 @@
 					</ol>
 				</fieldset>
 				<fieldset>
+					<legend>Checks</legend>
+					<ol id="checksList">
+						<!--
+						<li class="check">
+							<label for="check1">Check Amount</label>
+							<input id="check1" />
+						</li>
+						-->
+					</ol>
+					<input id="addCheck" type="button" value="Add Check..." />
+				</fieldset>
+				<fieldset>
 					<legend>Totals</legend>
 					<ol>
 						<li>
@@ -232,11 +280,15 @@
 						</li>
 						<li>
 							<label for="cashBalance">Cash Balance</label>
-							<input id="cashBalance" />
+							<input id="cashBalance" disabled="disabled" />
+						</li>
+						<li>
+							<label for="checksBalance">Checks Balance</label>
+							<input id="checksBalance" disabled="disabled" />
 						</li>
 						<li>
 							<label for="balanceDelta">Deposit</label>
-							<input id="balanceDelta" />
+							<input id="balanceDelta" disabled="disabled" />
 							<span id="balanceDeltaDesc"></span>
 						</li>
 					</ol>
@@ -245,7 +297,7 @@
 			</form>
 			<p>Source code available from <a href="http://github.com/morgant/cash-out">http://github.com/morgant/cash-out</a> under the MIT License.<br />
 			Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics, Inc.</a></p>
-			<p>Powered by <a href="http://jquery.com/">jQuery</a>.</p>
+			<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
 		</div>
 		<!-- END WRAPPER -->
 	</body>
