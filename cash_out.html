@@ -120,6 +120,10 @@
 			input.even { color: orange; }
 			input.over { color: green; }
 		</style>
+		<style type="text/css" media="print">
+			/* hide superfluous elements when printing */
+			h1, p, #print, #addCheck { display: none; }
+		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
