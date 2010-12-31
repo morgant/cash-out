@@ -69,6 +69,7 @@
 				margin: 0;
 				margin-bottom: -1px;
 				border: 1px solid #999;
+				-webkit-border-radius: 0;
 				line-height: 1em;
 			}
 			li > label {
@@ -86,7 +87,7 @@
 			}
 			li > input {
 				border-left: none;
-				width: 280px;
+				width: 118px;
 			}
 			li:first-child > input {
 				-webkit-border-top-right-radius: 8px;
@@ -96,17 +97,16 @@
 			}
 			input[type=button] {
 				font-size: 17px;
+				height: 41px;
 				background-color: #fff;
 				text-align: center;
-				-webkit-border-top-left-radius: 8px;
-				-webkit-border-top-right-radius: 8px;
-				-webkit-border-bottom-left-radius: 8px;
-				-webkit-border-bottom-right-radius: 8px;
+				-webkit-border-radius: 8px;
 				padding: 12px 10px;
 				margin: 10px;
 				border: 1px solid #999;
 				line-height: 1em;
-				width: 460px;
+				width: 298px;
+				-webkit-appearance: none;
 			}
 			input[type=button]:active, input[type=button]:hover {
 				background-color: #00f;
@@ -284,15 +284,15 @@
 						</li>
 						<li>
 							<label for="cashBalance">Cash Balance</label>
-							<input id="cashBalance" disabled="disabled" />
+							<input id="cashBalance" readonly="readonly" />
 						</li>
 						<li>
 							<label for="checksBalance">Checks Balance</label>
-							<input id="checksBalance" disabled="disabled" />
+							<input id="checksBalance" readonly="readonly" />
 						</li>
 						<li>
 							<label for="balanceDelta">Deposit</label>
-							<input id="balanceDelta" disabled="disabled" />
+							<input id="balanceDelta" readonly="readonly" />
 							<span id="balanceDeltaDesc"></span>
 						</li>
 					</ol>
