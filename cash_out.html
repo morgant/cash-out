@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="revisit-after" content="1 day" />
@@ -215,104 +215,103 @@
 		<title>Cash Out</title>
 	</head>
 	<body>
-		<!-- BEGIN WRAPPER -->
-		<div id="wrapper">
+		
+		<h1>Cash Out</h1>
+		<h2 id="date"></h2>
+		
+		<form action="">
+			<fieldset>
+				<legend>Bills</legend>
+				<ol>
+					<li>
+						<label for="hundreds">$100 &times;</label>
+						<input id="hundreds" type="text" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="fifties">$50 &times;</label>
+						<input id="fifties" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="twenties">$20 &times;</label>
+						<input id="twenties" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="tens">$10 &times;</label>
+						<input id="tens" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="fives">$5 &times;</label>
+						<input id="fives" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="ones">$1 &times;</label>
+						<input id="ones" pattern="[0-9]*" />
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>Coins</legend>
+				<ol>
+					<li>
+						<label for="quarters">25¢ &times;</label>
+						<input id="quarters" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="dimes">10¢ &times;</label>
+						<input id="dimes" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="nickels">5¢ &times;</label>
+						<input id="nickels" pattern="[0-9]*" />
+					</li>
+					<li>
+						<label for="pennies">1¢ &times;</label>
+						<input id="pennies" pattern="[0-9]*" />
+					</li>
+				</ol>
+			</fieldset>
+			<fieldset>
+				<legend>Checks</legend>
+				<ol id="checksList">
+					<!--
+					<li class="check">
+						<label for="check1">Check Amount</label>
+						<input id="check1" />
+					</li>
+					-->
+				</ol>
+				<input id="addCheck" type="button" value="Add Check..." />
+			</fieldset>
+			<fieldset>
+				<legend>Totals</legend>
+				<ol>
+					<li>
+						<label for="openingBalance">Opening Balance</label>
+						<input id="openingBalance" value="200.00" />
+					</li>
+					<li>
+						<label for="cashBalance">Cash Balance</label>
+						<input id="cashBalance" readonly="readonly" />
+					</li>
+					<li>
+						<label for="checksBalance">Checks Balance</label>
+						<input id="checksBalance" readonly="readonly" />
+					</li>
+					<li>
+						<label for="balanceDelta">Deposit</label>
+						<input id="balanceDelta" readonly="readonly" />
+						<span id="balanceDeltaDesc"></span>
+					</li>
+				</ol>
+			</fieldset>
 			
-			<h1>Cash Out</h1>
-			<h2 id="date"></h2>
-
-			<form action="">
-				<fieldset>
-					<legend>Bills</legend>
-					<ol>
-						<li>
-							<label for="hundreds">$100 &times;</label>
-							<input id="hundreds" />
-						</li>
-						<li>
-							<label for="fifies">$50 &times;</label>
-							<input id="fifties" />
-						</li>
-						<li>
-							<label for="twenties">$20 &times;</label>
-							<input id="twenties" />
-						</li>
-						<li>
-							<label for="tens">$10 &times;</label>
-							<input id="tens" />
-						</li>
-						<li>
-							<label for="fives">$5 &times;</label>
-							<input id="fives" />
-						</li>
-						<li>
-							<label for="ones">$1 &times;</label>
-							<input id="ones" />
-						</li>
-					</ol>
-				</fieldset>
-				<fieldset>
-					<legend>Coins</legend>
-					<ol>
-						<li>
-							<label for="quarters">25¢ &times;</label>
-							<input id="quarters" />
-						</li>
-						<li>
-							<label for="dimes">10¢ &times;</label>
-							<input id="dimes" />
-						</li>
-						<li>
-							<label for="nickels">5¢ &times;</label>
-							<input id="nickels" />
-						</li>
-						<li>
-							<label for="pennies">1¢ &times;</label>
-							<input id="pennies" />
-						</li>
-					</ol>
-				</fieldset>
-				<fieldset>
-					<legend>Checks</legend>
-					<ol id="checksList">
-						<!--
-						<li class="check">
-							<label for="check1">Check Amount</label>
-							<input id="check1" />
-						</li>
-						-->
-					</ol>
-					<input id="addCheck" type="button" value="Add Check..." />
-				</fieldset>
-				<fieldset>
-					<legend>Totals</legend>
-					<ol>
-						<li>
-							<label for="openingBalance">Opening Balance</label>
-							<input id="openingBalance" value="200.00" />
-						</li>
-						<li>
-							<label for="cashBalance">Cash Balance</label>
-							<input id="cashBalance" readonly="readonly" />
-						</li>
-						<li>
-							<label for="checksBalance">Checks Balance</label>
-							<input id="checksBalance" readonly="readonly" />
-						</li>
-						<li>
-							<label for="balanceDelta">Deposit</label>
-							<input id="balanceDelta" readonly="readonly" />
-							<span id="balanceDeltaDesc"></span>
-						</li>
-					</ol>
-				</fieldset>
-				<input id="print" type="button" value="Print" />
-			</form>
-			<p>Source code available from <a href="http://github.com/morgant/cash-out">http://github.com/morgant/cash-out</a> under the MIT License.<br />
-			Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics, Inc.</a></p>
-			<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
-		</div>
-		<!-- END WRAPPER -->
+			<input id="print" type="button" value="Print" />
+		</form>
+		
+		<p>Source code available from <a href="http://github.com/morgant/cash-out">http://github.com/morgant/cash-out</a> under the MIT License.<br />
+		Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics, Inc.</a></p>
+		<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
+	
 	</body>
 </html>
 <!--
