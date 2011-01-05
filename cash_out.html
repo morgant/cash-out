@@ -142,7 +142,7 @@
 		</style>
 		<style type="text/css" media="print">
 			/* hide superfluous elements when printing */
-			h1, p, #print, #addCheck { display: none; }
+			h1, p, #print, #email, #addCheck { display: none; }
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript">
@@ -236,7 +236,7 @@
 					
 					// build the message content
 					var subject = "Cash Out for " + $("#date").text();
-					var body = subject + ":\n\nCASH:";
+					var body = subject + ":\n\nCASH:\n";
 					body += "\n$100 x " + Number($('#hundreds').val());
 					body += "\n $50 x " + Number($('#fifties').val());
 					body += "\n $20 x " + Number($('#twenties').val());
@@ -247,9 +247,9 @@
 					body += "\n 10¢ x " + Number($('#dimes').val());
 					body += "\n  5¢ x " + Number($('#nickels').val());
 					body += "\n  1¢ x " + Number($('#pennies').val());
-					body += "\n\nCHECKS:";
+					body += "\n\nCHECKS:\n";
 					$("li.check > input").each(function () { body += "\n$" + Number($(this).val()).toFixed(2); });
-					body += "\n\nTOTALS:";
+					body += "\n\nTOTALS:\n";
 					body += "\nOpening Balance: $" + Number($('#openingBalance').val()).toFixed(2);
 					body += "\n   Cash Balance: $" + Number($('#cashBalance').val()).toFixed(2);
 					body += "\n Checks Balance: $" + Number($('#checksBalance').val()).toFixed(2);
