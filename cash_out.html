@@ -13,11 +13,14 @@
 		<link rel="alternate" type="application/rss+xml" title="" href="" />
 		<link rel="icon" href="favico.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="favico.ico" type="image/x-icon" />
-		<!-- iOS META TAGS -->
+		<!-- BEGIN iOS ICONS & META TAGS -->
+		<link rel="apple-touch-icon" href="img/cash_out-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="cash_out-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="cash_out-icon-114x114.png" />
 		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<!-- iOS META TAGS -->
+		<!-- END iOS ICONS & META TAGS -->
 		<style type="text/css">
 			body {
 				background-color: #ddd;
@@ -28,6 +31,10 @@
 				padding: 0;
 			}
 			h1, h2, p { text-align: center; }
+			p {
+				margin-left: 10px;
+				margin-right: 10px;
+			}
 			h1 {
 				margin: 0;
 				padding: 0;
@@ -116,6 +123,7 @@
 			fieldset input[type=button] {
 				margin: 10px 0;
 			}
+			#checksBalance, label[for=checksBalance] { display: none; }
 			#print {
 				-webkit-border-bottom-left-radius: 0;
 				-webkit-border-bottom-right-radius: 0;
@@ -219,9 +227,10 @@
 					{
 						$("#checksList").children().last().after(newCheckHTML);
 					}
-
+					
 					// update calculations upon leaving the new check field
 					$("#check" + checkNumber).blur(CalculateBalances);
+					$("#checksBalance, label[for=checksBalance]").show();
 				});
 					
 				// print button action
@@ -327,7 +336,7 @@
 					</li>
 					-->
 				</ol>
-				<input id="addCheck" type="button" value="Add Check..." />
+				<input id="addCheck" type="button" value="Add Check" />
 			</fieldset>
 			<fieldset>
 				<legend>Totals</legend>
@@ -358,8 +367,8 @@
 			</fieldset>
 		</form>
 		
-		<p>Source code available from <a href="http://github.com/morgant/cash-out">http://github.com/morgant/cash-out</a> under the MIT License.<br />
-		Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics, Inc.</a></p>
+		<p>Source code available on <a href="http://github.com/morgant/cash-out">github</a> under the MIT License.<br />
+		Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics</a>.</p>
 		<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
 	
 	</body>
