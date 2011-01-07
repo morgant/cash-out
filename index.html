@@ -15,8 +15,9 @@
 		<link rel="shortcut icon" href="favico.ico" type="image/x-icon" />
 		<!-- BEGIN iOS ICONS & META TAGS -->
 		<link rel="apple-touch-icon" href="img/cash_out-icon-57x57.png" />
-		<link rel="apple-touch-icon" sizes="72x72" href="cash_out-icon-72x72.png" />
-		<link rel="apple-touch-icon" sizes="114x114" href="cash_out-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="img/cash_out-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="img/cash_out-icon-114x114.png" />
+		<link rel="apple-touch-startup-image" href="img/cash_out-startup_screen-320x460.png" />
 		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -48,10 +49,12 @@
 			h2 { font-size: 17px; }
 			fieldset {
 				margin: 0;
-				margin-top: 41px;
+				margin-top: 37px;
 				border: none;
+				border: 1px solid red;
 				position: relative;
 			}
+			#actions { margin-top: 10px; }
 			fieldset > legend {
 				color: #666;
 				margin-left: 10px;
@@ -123,16 +126,19 @@
 			fieldset input[type=button] {
 				margin: 10px 0;
 			}
+			#addCheck { margin-bottom: 0; }
 			#checksBalance, label[for=checksBalance] { display: none; }
 			#print {
 				-webkit-border-bottom-left-radius: 0;
 				-webkit-border-bottom-right-radius: 0;
+				margin-top: 0;
 				margin-bottom: -1px;
 			}
 			#email {
 				-webkit-border-top-left-radius: 0;
 				-webkit-border-top-right-radius: 0;
 				margin-top: 0;
+				margin-bottom: 0;
 			}
 			input.under { color: red; }
 			input.even { color: orange; }
@@ -361,14 +367,14 @@
 				</ol>
 			</fieldset>
 			
-			<fieldset>
+			<fieldset id="actions">
 				<input id="print" type="button" value="Print" />
 				<input id="email" type="button" value="Email" />
 			</fieldset>
 		</form>
 		
-		<p>Source code available on <a href="http://github.com/morgant/cash-out">github</a> under the MIT License.<br />
-		Development sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics</a>.</p>
+		<p>Sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics</a>.<br />
+		Fork on <a href="http://github.com/morgant/cash-out">GitHub</a>.</p>
 		<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
 	
 	</body>
