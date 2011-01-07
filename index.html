@@ -53,7 +53,7 @@
 				border: none;
 				position: relative;
 			}
-			#actions { margin-top: 10px; }
+			#tools > fieldset:last-child { margin-top: 10px; }
 			fieldset > legend {
 				color: #666;
 				margin-left: 10px;
@@ -142,6 +142,23 @@
 			input.under { color: red; }
 			input.even { color: orange; }
 			input.over { color: green; }
+			
+			@media all and (min-device-width: 481px) {
+				section {
+					display: block;
+					margin: 0;
+					padding: 0;
+					width: 320px;
+				}
+				#money {
+					float: left;
+				}
+				#tools {
+					margin-left: 321px;
+					overflow: hidden;
+				}
+				footer { clear: both; {
+			}
 			
 			/* iPad Portrait CSS */
 			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
@@ -281,101 +298,107 @@
 		<h2 id="date"></h2>
 		
 		<form action="">
-			<fieldset>
-				<legend>Bills</legend>
-				<ol>
-					<li>
-						<label for="hundreds">$100 &times;</label>
-						<input id="hundreds" type="text" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="fifties">$50 &times;</label>
-						<input id="fifties" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="twenties">$20 &times;</label>
-						<input id="twenties" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="tens">$10 &times;</label>
-						<input id="tens" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="fives">$5 &times;</label>
-						<input id="fives" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="ones">$1 &times;</label>
-						<input id="ones" pattern="[0-9]*" />
-					</li>
-				</ol>
-			</fieldset>
-			<fieldset>
-				<legend>Coins</legend>
-				<ol>
-					<li>
-						<label for="quarters">25¢ &times;</label>
-						<input id="quarters" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="dimes">10¢ &times;</label>
-						<input id="dimes" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="nickels">5¢ &times;</label>
-						<input id="nickels" pattern="[0-9]*" />
-					</li>
-					<li>
-						<label for="pennies">1¢ &times;</label>
-						<input id="pennies" pattern="[0-9]*" />
-					</li>
-				</ol>
-			</fieldset>
-			<fieldset>
-				<legend>Checks</legend>
-				<ol id="checksList">
-					<!--
-					<li class="check">
-						<label for="check1">Check Amount</label>
-						<input id="check1" />
-					</li>
-					-->
-				</ol>
-				<input id="addCheck" type="button" value="Add Check" />
-			</fieldset>
-			<fieldset>
-				<legend>Totals</legend>
-				<ol>
-					<li>
-						<label for="openingBalance">Opening Balance</label>
-						<input id="openingBalance" value="200.00" />
-					</li>
-					<li>
-						<label for="cashBalance">Cash Balance</label>
-						<input id="cashBalance" readonly="readonly" />
-					</li>
-					<li>
-						<label for="checksBalance">Checks Balance</label>
-						<input id="checksBalance" readonly="readonly" />
-					</li>
-					<li>
-						<label for="balanceDelta">Deposit</label>
-						<input id="balanceDelta" readonly="readonly" />
-						<span id="balanceDeltaDesc"></span>
-					</li>
-				</ol>
-			</fieldset>
-			
-			<fieldset id="actions">
-				<input id="print" type="button" value="Print" />
-				<input id="email" type="button" value="Email" />
-			</fieldset>
+			<section id="money">
+				<fieldset>
+					<legend>Bills</legend>
+					<ol>
+						<li>
+							<label for="hundreds">$100 &times;</label>
+							<input id="hundreds" type="text" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="fifties">$50 &times;</label>
+							<input id="fifties" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="twenties">$20 &times;</label>
+							<input id="twenties" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="tens">$10 &times;</label>
+							<input id="tens" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="fives">$5 &times;</label>
+							<input id="fives" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="ones">$1 &times;</label>
+							<input id="ones" pattern="[0-9]*" />
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset>
+					<legend>Coins</legend>
+					<ol>
+						<li>
+							<label for="quarters">25¢ &times;</label>
+							<input id="quarters" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="dimes">10¢ &times;</label>
+							<input id="dimes" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="nickels">5¢ &times;</label>
+							<input id="nickels" pattern="[0-9]*" />
+						</li>
+						<li>
+							<label for="pennies">1¢ &times;</label>
+							<input id="pennies" pattern="[0-9]*" />
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset>
+					<legend>Checks</legend>
+					<ol id="checksList">
+						<!--
+						<li class="check">
+							<label for="check1">Check Amount</label>
+							<input id="check1" />
+						</li>
+						-->
+					</ol>
+					<input id="addCheck" type="button" value="Add Check" />
+				</fieldset>
+			</section>
+			<section id="tools">
+				<fieldset>
+					<legend>Totals</legend>
+					<ol>
+						<li>
+							<label for="openingBalance">Opening Balance</label>
+							<input id="openingBalance" value="200.00" />
+						</li>
+						<li>
+							<label for="cashBalance">Cash Balance</label>
+							<input id="cashBalance" readonly="readonly" />
+						</li>
+						<li>
+							<label for="checksBalance">Checks Balance</label>
+							<input id="checksBalance" readonly="readonly" />
+						</li>
+						<li>
+							<label for="balanceDelta">Deposit</label>
+							<input id="balanceDelta" readonly="readonly" />
+							<span id="balanceDeltaDesc"></span>
+						</li>
+					</ol>
+				</fieldset>
+				
+				<fieldset>
+					<input id="print" type="button" value="Print" />
+					<input id="email" type="button" value="Email" />
+				</fieldset>
+			</section>
 		</form>
 		
-		<p>Sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics</a>.<br />
-		Fork on <a href="http://github.com/morgant/cash-out">GitHub</a>.</p>
-		<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
-	
+		<footer>
+			<p>Sponsored by <a href="http://www.smalldog.com/" title="Small Dog Electronics — Always by your side.">Small Dog Electronics</a>.<br />
+			Fork on <a href="http://github.com/morgant/cash-out">GitHub</a>.</p>
+			<p>Powered by <a href="http://jquery.com/">jQuery</a>. Optimized for <a href="http://www.apple.com/ios/">iOS</a>.</p>
+		</footer>
+		
 	</body>
 </html>
 <!--
