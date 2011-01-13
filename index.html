@@ -51,6 +51,7 @@
 				margin: 0;
 				margin-top: 37px;
 				border: none;
+				padding: 5px 10px;
 				position: relative;
 			}
 			#tools > fieldset:last-child { margin-top: 10px; }
@@ -58,6 +59,8 @@
 				color: #666;
 				margin-left: 10px;
 				font-size: 17px;
+				font-weight: bold;
+				text-shadow: 0px 1px 0px #fff;
 				display: block;
 				position: absolute;
 				top: -29px;
@@ -143,7 +146,8 @@
 			input.even { color: orange; }
 			input.over { color: green; }
 			
-			@media all and (min-device-width: 481px) {
+			/* iPad Portrait CSS */
+			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
 				section {
 					display: block;
 					margin: 0;
@@ -157,29 +161,47 @@
 					margin-left: 384px;
 					overflow: hidden;
 				}
-				fieldset > legend { margin-left: 20px; }
-				ul, ol {
-					margin-left: 20px;
-					margin-right: 20px;
+				#money fieldset {
+					padding-left: 30px;
+					padding-right: 15px;
 				}
-				li > label { width: 152px; }
-				li > input { width: 130px; }
-				input[type=button] {
-					width: 322px;
-					margin-left: 20px;
-					margin-right: 20px;
+				#tools fieldset {
+					padding-left: 15px;
+					padding-right: 30px;
 				}
+				li > label { width: 157px; }
+				li > input { width: 135px; }
+				input[type=button] { width: 334px; }
 				footer { clear: both; } 
 			}
 			
-			/* iPad Portrait CSS */
-			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-				
-			}
-
 			/* iPad Landscape CSS */
 			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-				
+				section {
+					display: block;
+					margin: 0;
+					padding: 0;
+					width: 512px;
+				}
+				#money {
+					float: left;
+				}
+				#tools {
+					margin-left: 512px;
+					overflow: hidden;
+				}
+				#money fieldset {
+					padding-left: 30px;
+					padding-right: 15px;
+				}
+				#tools fieldset {
+					padding-left: 15px;
+					padding-right: 30px;
+				}
+				li > label { width: 221px; }
+				li > input { width: 199px; }
+				input[type=button] { width: 462px; }
+				footer { clear: both; }
 			}
 		</style>
 		<style type="text/css" media="print">
