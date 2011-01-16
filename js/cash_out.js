@@ -87,6 +87,12 @@ $(document).ready(function() {
 	$("#email").click(function() {
 		CalculateBalances();
 		
+		// prompt for the email address to send to
+		var recipient = '';
+		do {
+			recipient = prompt("Email to:");
+		} while ( !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/.test(recipient) );
+		
 		// build the message content
 		var subject = "Cash Out for " + $("#date").text();
 		var body = subject + ":\n\nCASH:\n";
@@ -108,7 +114,7 @@ $(document).ready(function() {
 		body += "\n Checks Balance: $" + Number($('#checksBalance').val()).toFixed(2);
 		body += "\n        DEPOSIT: $" + Number($('#balanceDelta').val()).toFixed(2);
 		
-		window.location.replace("mailto:user@example.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body));
+		window.location.replace("mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body));
 	});
 });
 
