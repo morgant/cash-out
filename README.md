@@ -11,18 +11,13 @@ Optimized & themed for [iOS](http://www.apple.com/ios/) (iPod touch, iPhone, or 
 
 [Cash Out](http://cash-out.makkintosshu.com/)
 
-Released under the MIT license. Source code available at [http://github.com/morgant/cash-out].
+Find it on [Apple's Web Apps](http://www.apple.com/webapps/calculate/) & [OpenAppMkt](http://openappmkt.com/app/4d326589e2cbfc367e000a91/Cash%20Out). Released under the MIT license. Source code available at [http://github.com/morgant/cash-out].
 
 Development sponsored in part by [Small Dog Electronics, Inc.](http://www.smalldog.com/)
 
 Current Release:
 [http://cash-out.makkintosshu.com/]
 
-
-Will List On:
-
-- [http://www.apple.com/webapps/calculate/]
-- [http://openappmkt.com/]
 
 Resources Used During Development:
 
