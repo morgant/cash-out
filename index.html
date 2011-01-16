@@ -22,194 +22,23 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<!-- END iOS ICONS & META TAGS -->
-		<style type="text/css">
-			body {
-				background-color: #ddd;
-				color: #222;
-				font-family: Helvetica;
-				font-size: 14px;
-				margin: 0;
-				padding: 0;
-			}
-			h1, h2, p { text-align: center; }
-			p {
-				margin-left: 10px;
-				margin-right: 10px;
-			}
-			h1 {
-				margin: 0;
-				padding: 0;
-				background-color: #ccc;
-				border-bottom: 1px solid #666;
-				font-size: 20px;
-				padding: 10px 0;
-				text-shadow: 0px 1px 0px #fff;
-				background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));
-			}
-			h2 { font-size: 17px; }
-			fieldset {
-				margin: 0;
-				margin-top: 37px;
-				border: none;
-				padding: 5px 10px;
-				position: relative;
-			}
-			#tools > fieldset:last-child { margin-top: 10px; }
-			fieldset > legend {
-				color: #666;
-				margin-left: 10px;
-				font-size: 17px;
-				font-weight: bold;
-				text-shadow: 0px 1px 0px #fff;
-				display: block;
-				position: absolute;
-				top: -29px;
-			}
-			ol, ul { margin: 10px 0; }
-			ol, ul, li {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-			}
-			li > label, li > input {
-				display: inline-block;
-				font-familily: Helvetica;
-				background-color: #fff;
-				font-size: 17px;
-				height: 17px;
-				padding: 12px 10px;
-				margin: 0;
-				margin-bottom: -1px;
-				border: 1px solid #999;
-				-webkit-border-radius: 0;
-				line-height: 1em;
-			}
-			li > label {
-				float: left;
-				font-weight: bold;
-				text-align: right;
-				border-right: none;
-				width: 140px;
-			}
-			li:first-child > label {
-				-webkit-border-top-left-radius: 8px;
-			}
-			li:last-child > label {
-				-webkit-border-bottom-left-radius: 8px;
-			}
-			li > input {
-				border-left: none;
-				width: 118px;
-			}
-			li:first-child > input {
-				-webkit-border-top-right-radius: 8px;
-			}
-			li:last-child > input {
-				-webkit-border-bottom-right-radius: 8px;
-			}
-			input[type=button] {
-				display: block;
-				font-size: 17px;
-				height: 41px;
-				background-color: #fff;
-				text-align: center;
-				-webkit-border-radius: 8px;
-				padding: 12px 10px;
-				margin: 10px;
-				border: 1px solid #999;
-				line-height: 1em;
-				width: 298px;
-				-webkit-appearance: none;
-			}
-			input[type=button]:active, input[type=button]:hover {
-				background-color: #00f;
-				color: #fff;
-			}
-			fieldset input[type=button] {
-				margin: 10px 0;
-			}
-			#addCheck { margin-bottom: 0; }
-			#checksBalance, label[for=checksBalance] { display: none; }
-			#print {
-				-webkit-border-bottom-left-radius: 0;
-				-webkit-border-bottom-right-radius: 0;
-				margin-top: 0;
-				margin-bottom: -1px;
-			}
-			#email {
-				-webkit-border-top-left-radius: 0;
-				-webkit-border-top-right-radius: 0;
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-			input.under { color: red; }
-			input.even { color: orange; }
-			input.over { color: green; }
-			
-			/* iPad Portrait CSS */
-			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-				section {
-					display: block;
-					margin: 0;
-					padding: 0;
-					width: 384px;
-				}
-				#money {
-					float: left;
-				}
-				#tools {
-					margin-left: 384px;
-					overflow: hidden;
-				}
-				#money fieldset {
-					padding-left: 30px;
-					padding-right: 15px;
-				}
-				#tools fieldset {
-					padding-left: 15px;
-					padding-right: 30px;
-				}
-				li > label { width: 157px; }
-				li > input { width: 135px; }
-				input[type=button] { width: 334px; }
-				footer { clear: both; } 
-			}
-			
-			/* iPad Landscape CSS */
-			@media all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-				section {
-					display: block;
-					margin: 0;
-					padding: 0;
-					width: 512px;
-				}
-				#money {
-					float: left;
-				}
-				#tools {
-					margin-left: 512px;
-					overflow: hidden;
-				}
-				#money fieldset {
-					padding-left: 30px;
-					padding-right: 15px;
-				}
-				#tools fieldset {
-					padding-left: 15px;
-					padding-right: 30px;
-				}
-				li > label { width: 221px; }
-				li > input { width: 199px; }
-				input[type=button] { width: 462px; }
-				footer { clear: both; }
-			}
-		</style>
 		<style type="text/css" media="print">
 			/* hide superfluous elements when printing */
 			h1, p, #print, #email, #addCheck { display: none; }
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
 		<script type="text/javascript" src="/js/cash_out.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-88575-18']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 		<title>Cash Out</title>
 	</head>
 	<body>
