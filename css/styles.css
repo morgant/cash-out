@@ -6,10 +6,17 @@ body {
 	margin: 0;
 	padding: 0;
 }
-h1, h2, p { text-align: center; }
+h1, h2, p {
+	text-align: center;
+	text-shadow: 0px 1px 0px #fff;
+}
 p {
 	margin-left: 10px;
 	margin-right: 10px;
+	color: #666;
+}
+a:link, a:visited {
+	color: #333;
 }
 h1 {
 	margin: 0;
@@ -18,10 +25,11 @@ h1 {
 	border-bottom: 1px solid #666;
 	font-size: 20px;
 	padding: 10px 0;
-	text-shadow: 0px 1px 0px #fff;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));
 }
-h2 { font-size: 17px; }
+h2 {
+	font-size: 17px;
+}
 fieldset {
 	margin: 0;
 	margin-top: 37px;
@@ -35,7 +43,6 @@ fieldset > legend {
 	margin-left: 10px;
 	font-size: 17px;
 	font-weight: bold;
-	text-shadow: 0px 1px 0px #fff;
 	display: block;
 	position: absolute;
 	top: -29px;
