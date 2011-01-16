@@ -82,6 +82,7 @@ li:last-child > label {
 li > input {
 	border-left: none;
 	width: 118px;
+	-webkit-appearance: none;
 }
 li:first-child > input {
 	-webkit-border-top-right-radius: 8px;
@@ -102,9 +103,11 @@ input[type=button] {
 	line-height: 1em;
 	width: 298px;
 	-webkit-appearance: none;
+	font-weight: bold;
 }
 input[type=button]:active, input[type=button]:hover {
 	background-color: #00f;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#55f), to(#00f));
 	color: #fff;
 }
 	fieldset input[type=button] {
