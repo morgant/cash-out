@@ -7,16 +7,16 @@ _Cash out your registers faster, more easily, and more accurately._
 
 A free web app for quickly, easily, and accurately cashing out a register at the end of the business day. Sums the value of bills, coins, and checks, then calculates your deposit. Allows printing or emailing of completed cash out sheet.
 
-Optimized & themed for [iOS](http://www.apple.com/ios/) (iPod touch, iPhone, or iPad), but works great in a modern web browser as well. Better yet, since it's a web app, there's no need to worry about upgrades or waiting for bug fix releases as it'll always be running the latest version.
+Optimized & themed for [iOS](http://www.apple.com/ios/) (iPod touch, iPhone, or iPad), but works great in a modern web browser as well. Better yet, since it's a web app, there's no need to worry about upgrades or waiting for bug fix releases as it'll always be running the latest version. Save it to your home screen for access via a single touch and you'll never remember it's a web app.
 
 [Cash Out](http://cash-out.makkintosshu.com/)
 
-Find it on [Apple's Web Apps](http://www.apple.com/webapps/calculate/) & [OpenAppMkt](http://openappmkt.com/app/4d326589e2cbfc367e000a91/Cash%20Out). Released under the MIT license. Source code available at [http://github.com/morgant/cash-out].
+Find it on [OpenAppMkt](http://openappmkt.com/app/4d326589e2cbfc367e000a91/Cash%20Out) & [Twitter](http://twitter.com/cashoutapp/). Released under the MIT license. Source code available at [http://github.com/morgant/cash-out].
 
 Development sponsored in part by [Small Dog Electronics, Inc.](http://www.smalldog.com/)
 
 Current Release:
-[http://cash-out.makkintosshu.com/]
+[http://cash-out.makkintosshu.com/](http://cash-out.makkintosshu.com/)
 
 
 Resources Used During Development:
