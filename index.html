@@ -8,7 +8,7 @@
 		<meta name="author" content="" />
 		<meta name="copyright" content="" />
 		<meta name="company" content="" />
-		<link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="" type="text/css" media="print" />
 		<link rel="alternate" type="application/rss+xml" title="" href="" />
 		<link rel="icon" href="favico.ico" type="image/x-icon" />
@@ -27,7 +27,7 @@
 			h1, p, #print, #email, #addCheck { display: none; }
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-		<script type="text/javascript" src="/js/cash_out.js"></script>
+		<script type="text/javascript" src="js/cash_out.js"></script>
 		<title>Cash Out</title>
 	</head>
 	<body>
@@ -117,8 +117,12 @@
 							<input id="checksBalance" readonly="readonly" />
 						</li>
 						<li>
-							<label for="balanceDelta">Deposit</label>
-							<input id="balanceDelta" readonly="readonly" />
+							<label for="cashDeposit">Cash Deposit</label>
+							<input id="cashDeposit" readonly="readonly" />
+						</li>
+						<li>
+							<label for="totalDeposit">Total Deposit</label>
+							<input id="totalDeposit" readonly="readonly" />
 							<span id="balanceDeltaDesc"></span>
 						</li>
 					</ol>

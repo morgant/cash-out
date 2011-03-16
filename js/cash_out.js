@@ -31,21 +31,37 @@ function CalculateBalances() {
 	$("li.check > input").each(function () { checksTotal += Number($(this).val());  });
 	$("#checksBalance").val(checksTotal.toFixed(2));
 	
-	// update the delta
-	var delta = 0;
-	delta = Number($('#cashBalance').val()) - Number($('#openingBalance').val()) + Number($("#checksBalance").val());
-	$('#balanceDelta').val(delta.toFixed(2)).removeClass("over under even");
-	if ( (delta - Number($("#checksBalance").val())) < 0 )
+	// update the cash deposit
+	var deposit = 0;
+	deposit = Number($('#cashBalance').val()) - Number($('#openingBalance').val());
+	$('#cashDeposit').val(deposit.toFixed(2)).removeClass("over under even");
+	if ( deposit < 0 )
 	{
-		$("#balanceDelta").addClass("under");
+		$("#cashDeposit").addClass("under");
 	}
-	else if ( (delta - Number($("#checksBalance").val())) == 0 )
+	else if ( deposit == 0 )
 	{
-		$("#balanceDelta").addClass("even");
+		$("#cashDeposit").addClass("even");
 	}
 	else
 	{
-		$("#balanceDelta").addClass("over");
+		$("#cashDeposit").addClass("over");
+	}
+
+	// update the total deposit
+	deposit += Number($("#checksBalance").val());
+	$("#totalDeposit").val(deposit.toFixed(2)).removeClass("over under even");
+	if ( deposit < 0 )
+	{
+		$("#totalDeposit").addClass("under");
+	}
+	else if ( deposit == 0 )
+	{
+		$("#totalDeposit").addClass("even");
+	}
+	else
+	{
+		$("#totalDeposit").addClass("over");
 	}
 }
 
@@ -74,7 +90,7 @@ $(document).ready(function() {
 		
 		// update calculations upon leaving the new check field
 		$("#check" + checkNumber).blur(CalculateBalances);
-		$("#checksBalance, label[for=checksBalance]").show();
+		$("#checksBalance, label[for=checksBalance], #totalDeposit, label[for=totalDeposit]").show();
 	});
 		
 	// print button action

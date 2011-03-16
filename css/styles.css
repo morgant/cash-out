@@ -114,7 +114,7 @@ input[type=button]:active, input[type=button]:hover {
 	margin: 10px 0;
 }
 #addCheck { margin-bottom: 0; }
-#checksBalance, label[for=checksBalance] { display: none; }
+#checksBalance, label[for=checksBalance], #totalDeposit, label[for=totalDeposit] { display: none; }
 #print {
 	-webkit-border-bottom-left-radius: 0;
 	-webkit-border-bottom-right-radius: 0;
