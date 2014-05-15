@@ -128,7 +128,7 @@ $(document).ready(function() {
 		body += "\nOpening Balance: $" + Number($('#openingBalance').val()).toFixed(2);
 		body += "\n   Cash Balance: $" + Number($('#cashBalance').val()).toFixed(2);
 		body += "\n Checks Balance: $" + Number($('#checksBalance').val()).toFixed(2);
-		body += "\n        DEPOSIT: $" + Number($('#balanceDelta').val()).toFixed(2);
+		body += "\n        DEPOSIT: $" + Number($('#cashDeposit').val()).toFixed(2);
 		
 		window.location.replace("mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body));
 	});
